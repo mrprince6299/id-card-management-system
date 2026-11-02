@@ -1,0 +1,488 @@
+{
+  "timestamp": "2026-11-01T04:01:16.178Z",
+  "totalTests": 58,
+  "passed": 58,
+  "failed": 0,
+  "tests": [
+    {
+      "category": "Environment",
+      "name": "Generated 100 fictional employee records dataset",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Environment",
+      "name": "Found 100 fictional employee photographs in fixtures",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Dashboard",
+      "name": "App loads with correct title",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Dashboard",
+      "name": "Captured desktop dashboard screenshot (1440x900)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Dashboard",
+      "name": "Captured mobile responsive screenshot (375x812)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Parsed exactly 100 rows from XLSX",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Auto-mapped Employee ID column from XLSX",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Auto-mapped First Name column from XLSX",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Auto-mapped Department column from XLSX",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Parsed exactly 100 rows from CSV",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Manual column mapping override configuration verified",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Detected duplicate Employee ID in batch",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Detected missing required Employee ID",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Detected invalid email format",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "Detected invalid date format",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Import",
+      "name": "100 out of 100 valid records verified for import",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Stripped \"_profile\" suffix correctly",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Stripped \"_photo\" suffix correctly",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Stripped \"-headshot\" suffix correctly",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Matched 100/100 employee photos automatically",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Zero unmatched photos",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Zero missing photo employees",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Detected unmatched photos (CONTRACTOR & GUEST)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhotoManager",
+      "name": "Detected duplicate photo collision for same employee ID",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Designer",
+      "name": "Captured Corporate Blue Front design screenshot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Designer",
+      "name": "Captured Corporate Blue Back design screenshot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Designer",
+      "name": "Captured Executive Minimal Front design screenshot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Designer",
+      "name": "Captured Executive Minimal Back design screenshot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Designer",
+      "name": "Captured Modern Tech Front design screenshot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Designer",
+      "name": "Captured Modern Tech Back design screenshot",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 01-1-emp-a4-front.pdf (1 pages, 4.3 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 02-1-emp-a4-duplex.pdf (2 pages, 6 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 03-1-emp-cr80-front.pdf (1 pages, 3.3 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 04-1-emp-cr80-duplex.pdf (2 pages, 4 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 05-10-emp-a4-duplex.pdf (4 pages, 28.6 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 06-10-emp-cr80-duplex.pdf (20 pages, 15.5 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 07-100-emp-a4-front.pdf (12 pages, 126.7 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 08-100-emp-a4-duplex.pdf (24 pages, 255 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 09-100-emp-cr80-front.pdf (100 pages, 59.8 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PDFMatrix",
+      "name": "Generated 10-100-emp-cr80-duplex.pdf (200 pages, 130.7 KB)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-01-first-emp-front-cr80.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-02-first-emp-back-cr80.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-03-middle-emp-front-cr80.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-04-middle-emp-back-cr80.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-05-last-emp-front-cr80.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-06-last-emp-back-cr80.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-07-a4-sheet-front-page1.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "VisualInspection",
+      "name": "Rendered high-res PDF image: visual-08-a4-sheet-back-page2-duplex.png",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhysicalPrint",
+      "name": "A4 Left/Right margins calculated safely (>15mm)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhysicalPrint",
+      "name": "A4 Top/Bottom margins calculated safely (>10mm)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhysicalPrint",
+      "name": "Duplex alignment: Front column 0 pairs with Back column 2",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhysicalPrint",
+      "name": "Duplex alignment: Front column 1 pairs with Back column 1",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "PhysicalPrint",
+      "name": "Duplex alignment: Front column 2 pairs with Back column 0",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "DataPrivacy",
+      "name": "Zero employee photograph Base64 data stored in localStorage",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "DataPrivacy",
+      "name": "No sensitive credentials stored in browser localStorage",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Performance",
+      "name": "Total execution time: 10.34s for all 10 PDFs & 8 high-res renders",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Performance",
+      "name": "Peak Node Heap Memory: 134 MB (well below 512 MB ceiling)",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "category": "Performance",
+      "name": "Zero browser console errors detected during automation",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "performance": {
+    "totalElapsedSeconds": "10.34",
+    "heapMemoryMb": 134,
+    "memoryCeilingMb": 512,
+    "withinMemoryCeiling": true,
+    "pdfsGenerated": 10,
+    "renderedImagesCount": 8
+  },
+  "security": {},
+  "generatedPdfs": [
+    {
+      "filename": "01-1-emp-a4-front.pdf",
+      "fileSize": 4417,
+      "fileSizeFormatted": "4.3 KB",
+      "pages": 1,
+      "expectedPages": 1,
+      "widthMm": 210,
+      "heightMm": 297,
+      "isA4": true
+    },
+    {
+      "filename": "02-1-emp-a4-duplex.pdf",
+      "fileSize": 6122,
+      "fileSizeFormatted": "6 KB",
+      "pages": 2,
+      "expectedPages": 2,
+      "widthMm": 210,
+      "heightMm": 297,
+      "isA4": true
+    },
+    {
+      "filename": "03-1-emp-cr80-front.pdf",
+      "fileSize": 3380,
+      "fileSizeFormatted": "3.3 KB",
+      "pages": 1,
+      "expectedPages": 1,
+      "widthMm": 53.98,
+      "heightMm": 85.6,
+      "isA4": false
+    },
+    {
+      "filename": "04-1-emp-cr80-duplex.pdf",
+      "fileSize": 4102,
+      "fileSizeFormatted": "4 KB",
+      "pages": 2,
+      "expectedPages": 2,
+      "widthMm": 53.98,
+      "heightMm": 85.6,
+      "isA4": false
+    },
+    {
+      "filename": "05-10-emp-a4-duplex.pdf",
+      "fileSize": 29304,
+      "fileSizeFormatted": "28.6 KB",
+      "pages": 4,
+      "expectedPages": 4,
+      "widthMm": 210,
+      "heightMm": 297,
+      "isA4": true
+    },
+    {
+      "filename": "06-10-emp-cr80-duplex.pdf",
+      "fileSize": 15844,
+      "fileSizeFormatted": "15.5 KB",
+      "pages": 20,
+      "expectedPages": 20,
+      "widthMm": 53.98,
+      "heightMm": 85.6,
+      "isA4": false
+    },
+    {
+      "filename": "07-100-emp-a4-front.pdf",
+      "fileSize": 129786,
+      "fileSizeFormatted": "126.7 KB",
+      "pages": 12,
+      "expectedPages": 12,
+      "widthMm": 210,
+      "heightMm": 297,
+      "isA4": true
+    },
+    {
+      "filename": "08-100-emp-a4-duplex.pdf",
+      "fileSize": 261075,
+      "fileSizeFormatted": "255 KB",
+      "pages": 24,
+      "expectedPages": 24,
+      "widthMm": 210,
+      "heightMm": 297,
+      "isA4": true
+    },
+    {
+      "filename": "09-100-emp-cr80-front.pdf",
+      "fileSize": 61247,
+      "fileSizeFormatted": "59.8 KB",
+      "pages": 100,
+      "expectedPages": 100,
+      "widthMm": 53.98,
+      "heightMm": 85.6,
+      "isA4": false
+    },
+    {
+      "filename": "10-100-emp-cr80-duplex.pdf",
+      "fileSize": 133848,
+      "fileSizeFormatted": "130.7 KB",
+      "pages": 200,
+      "expectedPages": 200,
+      "widthMm": 53.98,
+      "heightMm": 85.6,
+      "isA4": false
+    }
+  ],
+  "screenshots": [
+    "01-dashboard-desktop-1440.png",
+    "02-dashboard-mobile-375.png",
+    "10-template-corporate-blue-front.png",
+    "11-template-corporate-blue-back.png",
+    "12-template-executive-minimal-front.png",
+    "13-template-executive-minimal-back.png",
+    "14-template-modern-tech-front.png",
+    "15-template-modern-tech-back.png"
+  ],
+  "renderedImages": [
+    "visual-01-first-emp-front-cr80.png",
+    "visual-02-first-emp-back-cr80.png",
+    "visual-03-middle-emp-front-cr80.png",
+    "visual-04-middle-emp-back-cr80.png",
+    "visual-05-last-emp-front-cr80.png",
+    "visual-06-last-emp-back-cr80.png",
+    "visual-07-a4-sheet-front-page1.png",
+    "visual-08-a4-sheet-back-page2-duplex.png"
+  ],
+  "issues": []
+}

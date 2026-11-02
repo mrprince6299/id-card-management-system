@@ -1,0 +1,17 @@
+Employee ID,First Name,Last Name,Department,Designation,Email,Phone,Joining Date,Blood Group,Photo File Name
+EMP-2001,Lucas,Bennett,Engineering,Senior Software Engineer,lucas.bennett@company.internal,+1 555-0101,2026-01-10,O+,lucas.jpg
+EMP-2002,Chloe,Morrison,Engineering,Frontend Developer,chloe.m@company.internal,+1 555-0102,2026-01-12,A+,chloe.jpg
+EMP-2003,Alexander,Wright,Product Design,UI Designer,alex.wright@company.internal,+1 555-0103,2026-01-15,B+,alex.jpg
+EMP-2004,Zoe,Kowalski,Data & AI,Data Scientist,zoe.k@company.internal,+1 555-0104,2026-01-20,AB+,zoe.jpg
+EMP-2005,Gabriel,Santos,Cybersecurity,Security Analyst,gabriel.s@company.internal,+1 555-0105,2026-01-25,O-,gabriel.jpg
+EMP-2006,Hannah,Abbott,Operations,Logistics Coordinator,hannah.a@company.internal,+1 555-0106,2026-02-01,A-,hannah.jpg
+EMP-2007,Benjamin,Taylor,Human Resources,Talent Partner,ben.taylor@company.internal,+1 555-0107,2026-02-05,B-,ben.jpg
+EMP-2008,Mia,Nakamura,Engineering,QA Automation Lead,mia.n@company.internal,+1 555-0108,2026-02-10,O+,mia.jpg
+EMP-2009,Nathan,Drake,Operations,Facility Manager,nathan.d@company.internal,+1 555-0109,2026-02-14,A+,nathan.jpg
+EMP-2010,Sofia,Reyes,Product Design,UX Researcher,sofia.r@company.internal,+1 555-0110,2026-02-18,O+,sofia.jpg
+EMP-2011,Oliver,Kim,Engineering,Backend Engineer,oliver.k@company.internal,+1 555-0111,2026-02-22,B+,oliver.jpg
+EMP-2012,Emma,Watson,Marketing,Content Specialist,emma.w@company.internal,+1 555-0112,2026-02-25,A+,emma.jpg
+EMP-2013,Daniel,Craig,Finance,Financial Analyst,daniel.c@company.internal,+1 555-0113,2026-03-01,AB-,daniel.jpg
+EMP-2014,Grace,Hopper,Data & AI,Principal AI Architect,grace.h@company.internal,+1 555-0114,2026-03-05,O+,grace.jpg
+EMP-2015,Samuel,Jackson,Cybersecurity,Compliance Officer,samuel.j@company.internal,+1 555-0115,2026-03-10,O-,samuel.jpg
+

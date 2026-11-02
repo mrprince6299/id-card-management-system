@@ -1,0 +1,55 @@
+{
+  "name": "id-card-management-system",
+  "version": "1.0.0",
+  "description": "Production-grade, local-first ID Card Management & Generation Platform for multiple organizations, supporting CR80 PVC and A4 duplex PDF printing.",
+  "author": "Mithilesh Kumar (https://github.com/mrprince6299)",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrprince6299/id-card-management-system.git"
+  },
+  "keywords": [
+    "id-card",
+    "id-card-generator",
+    "id-card-management",
+    "react",
+    "vite",
+    "pdf-generation",
+    "cr80",
+    "organization-management",
+    "badge-maker",
+    "local-first"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node tests/run-validation-tests.mjs && node tests/run-photo-matching-tests.mjs && node tests/run-template-tests.mjs && node tests/run-sidwal-template-tests.mjs && node tests/run-generalization-platform-tests.mjs && node tests/run-tenant-isolation-tests.mjs && node tests/run-phase2-phase3-tests.mjs && node tests/run-phase4-organization-tests.mjs && node tests/run-phase5-backup-restore-tests.mjs && node tests/run-pdf-tests.mjs && node tests/run-e2e-audit.mjs",
+    "test:fast": "node tests/run-validation-tests.mjs && node tests/run-photo-matching-tests.mjs && node tests/run-template-tests.mjs && node tests/run-sidwal-template-tests.mjs && node tests/run-generalization-platform-tests.mjs && node tests/run-tenant-isolation-tests.mjs && node tests/run-phase2-phase3-tests.mjs && node tests/run-phase4-organization-tests.mjs && node tests/run-phase5-backup-restore-tests.mjs && node tests/run-pdf-tests.mjs",
+    "test:acceptance": "node tests/run-phase6-acceptance-audit.mjs",
+    "test:audit": "node tests/final-audit/run-phase7-master-audit.mjs",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jsbarcode": "^3.12.3",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.65.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsqr": "^1.4.0",
+    "oxlint": "^1.89.0",
+    "pdfjs-dist": "^6.4.299",
+    "puppeteer-core": "^25.16.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}

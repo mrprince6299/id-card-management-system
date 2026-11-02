@@ -1,0 +1,13 @@
+Employee ID,First Name,Last Name,Department,Designation,Email,Phone,Joining Date,Blood Group,Photo File Name
+EMP-ERR-01,Valid,Person,Engineering,Staff Engineer,valid.person@company.com,+1 555-0201,2026-01-01,O+,valid.jpg
+EMP-ERR-01,Duplicate,IdPerson,Engineering,Frontend Engineer,dup.person@company.com,+1 555-0202,2026-01-02,A+,dup.jpg
+EMP-1001,Existing,SarahConflict,Engineering,Database Architect,existing.sarah@company.com,+1 555-0203,2026-01-03,B+,sarah.jpg
+,Missing,IdUser,Operations,Specialist,missing.id@company.com,+1 555-0204,2026-01-04,O+,missing_id.jpg
+EMP-ERR-04,,MissingFirst,Human Resources,Recruiter,missing.first@company.com,+1 555-0205,2026-01-05,A+,missing_first.jpg
+EMP-ERR-05,Missing,Last,,Specialist,missing.dept@company.com,+1 555-0206,2026-01-06,B+,missing_dept.jpg
+EMP-ERR-06,Missing,Designation,Finance,,missing.desig@company.com,+1 555-0207,2026-01-07,O+,missing_desig.jpg
+EMP-ERR-07,Bad,EmailUser,Legal,Counsel,invalid-email-address,+1 555-0208,2026-01-08,AB+,bad_email.jpg
+EMP-ERR-08,Bad,DateUser,Marketing,Strategist,bad.date@company.com,+1 555-0209,invalid-date-string,O-,bad_date.jpg
+,,,,,,,,,
+EMP-ERR-10,Good,EndingUser,Operations,Manager,good.end@company.com,+1 555-0210,2026-02-15,A+,good_end.jpg
+

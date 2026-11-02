@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Page Visual Renderer</title>
+  <script src="../../node_modules/pdfjs-dist/build/pdf.min.mjs" type="module"></script>
+  <style>
+    body { margin: 0; background: #0f172a; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; font-family: sans-serif; }
+    #canvas-container { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); background: white; border-radius: 4px; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <div id="canvas-container">
+    <canvas id="pdf-canvas"></canvas>
+  </div>
+
+  <script type="module">
+    import * as pdfjsLib from '../../node_modules/pdfjs-dist/build/pdf.min.mjs'
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs'
+
+    window.renderPdfPage = async function(pdfBase64, pageNumber = 1, scale = 2.0) {
+      try {
+        const binary = atob(pdfBase64)
+        const bytes = new Uint8Array(binary.length)
+        for (let i = 0; i < binary.length; i++) {
+          bytes[i] = binary.charCodeAt(i)
+        }
+
+        const loadingTask = pdfjsLib.getDocument({ data: bytes })
+        const pdf = await loadingTask.promise
+        const page = await pdf.getPage(pageNumber)
+
+        const viewport = page.getViewport({ scale })
+        const canvas = document.getElementById('pdf-canvas')
+        const context = canvas.getContext('2d')
+        canvas.height = viewport.height
+        canvas.width = viewport.width
+
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        }
+        await page.render(renderContext).promise
+        return { success: true, width: viewport.width, height: viewport.height, totalPages: pdf.numPages }
+      } catch (err) {
+        return { success: false, error: err.message }
+      }
+    }
+  </script>
+</body>
+</html>
+

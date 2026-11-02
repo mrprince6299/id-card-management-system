@@ -1,0 +1,76 @@
+CUSTOM ATTRIBUTION-REQUIRED SOFTWARE LICENSE
+
+Copyright (c) 2026 Mithilesh Kumar (https://github.com/mrprince6299)
+Project: ID Card Management & Generation System
+Original Repository: https://github.com/mrprince6299/id-card-management-system
+
+NOTICE: This is a custom software license, NOT a standard Open Source Initiative (OSI)
+approved license, nor is it an MIT, Apache 2.0, GPL, or Creative Commons license.
+By obtaining, using, copying, modifying, merging, publishing, distributing, or
+sublicensing this Software, you agree to comply with the terms and conditions set
+forth below.
+
+--------------------------------------------------------------------------------
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+--------------------------------------------------------------------------------
+
+1. Grant of License
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+   of the Software, for personal, educational, research, and commercial purposes,
+   subject to the mandatory conditions outlined in this License.
+
+2. Mandatory Attribution and Original Repository Notice
+   Any copy, redistribution, fork, deployment, or substantial portion of the
+   Software, in source code, compiled form, binary distribution, or embedded
+   within another application or product, MUST prominently retain the above
+   copyright notice, this license document, and the following exact attribution
+   statement in documentation, user-visible credit pages, and source distribution:
+
+   "Based on ID Card Management System by Mithilesh Kumar (@mrprince6299).
+   Original repository: https://github.com/mrprince6299/id-card-management-system"
+
+3. Preservation of Notices
+   Attribution to the original author (Mithilesh Kumar) and the original repository
+   link must not be removed, obscured, hidden, or minimized in any distribution,
+   fork, documentation, or derivative application.
+
+4. Notice of Modification (Derivative Works)
+   Any modified version, fork, or derivative work based upon the Software must:
+   a. Clearly state that the work has been modified from the original Software;
+   b. Provide prominent notice describing the changes made or stating that
+      modifications have been introduced;
+   c. Not misrepresent itself as the official or original project authored by
+      Mithilesh Kumar; and
+   d. Continue to include the full original copyright notice, this License,
+      and the mandatory attribution statement described in Section 2.
+
+5. Commercial Use
+   Commercial use of this Software is expressly permitted. Businesses, institutions,
+   and independent developers may use, adapt, and bundle this Software for
+   internal operations or commercial commercialized solutions, provided that all
+   attribution, notice, and non-misrepresentation requirements in Sections 2, 3,
+   and 4 are strictly maintained.
+
+6. No Trademark or Endorsement Rights
+   This License does not grant any rights to use the trademarks, trade names,
+   logos, or service marks of the original copyright holder, except as required
+   for reasonable and customary use in describing the origin of the Work and
+   fulfilling the mandatory attribution obligations.
+
+7. Disclaimer of Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+
+8. Limitation of Liability and Legal Enforceability Notice
+   This custom license is provided by the author to reflect the author's intent
+   regarding attribution and usage. While designed to be clear and binding, legal
+   interpretations may vary across jurisdictions. Users and distributors assume
+   all responsibilities regarding compliance under their applicable local laws.
