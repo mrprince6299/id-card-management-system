@@ -269,6 +269,15 @@ For the full legal text, terms, disclaimers, and warranty limitations, please re
 
 ---
 
+## ⚖️ Third-Party Trademarks & Reference Disclaimer
+
+- **Trademark Ownership**: All product names, company names, logos, service marks, and trademarks mentioned or displayed in this repository—including **SIDWAL**, **Indian Railways**, and any other third-party entities—are the property of their respective owners.
+- **Reference & Identification Purpose**: Their inclusion in sample templates, demonstrations, and test cases is solely for descriptive identification and reference purposes (such as demonstrating historical or physical layout replica capabilities).
+- **No Affiliation or Endorsement**: This project is independently developed and maintained by the author. It is **not** officially affiliated with, authorized by, sponsored by, or endorsed by Sidwal Refrigeration Industries Pvt. Ltd., Indian Railways, or any other trademark holder.
+- **Commercial Usage Responsibility**: This disclaimer does not grant any permission, license, or right to use third-party trademarks. Users, organizations, and developers deploying or commercializing identity cards are solely responsible for obtaining all necessary permissions and rights from the respective trademark holders before using third-party names, logos, or branding.
+
+---
+
 ## 👨‍💻 Author & Acknowledgments
 
 Created with ❤️ by **Mithilesh Kumar**  
