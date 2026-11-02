@@ -24,7 +24,7 @@ export const getStoredEmployees = () => {
       return MOCK_EMPLOYEES
     }
     const parsed = JSON.parse(raw)
-    const records = Array.isArray(parsed) && parsed.length > 0 ? parsed : MOCK_EMPLOYEES
+    const records = Array.isArray(parsed) ? parsed : MOCK_EMPLOYEES
 
     // Transparently migrate legacy records lacking organizationId or recordId
     const needsMigration = records.some((r) => !r.organizationId || !r.recordId)
@@ -43,14 +43,23 @@ export const getStoredEmployees = () => {
 
 /**
  * Persist employee list to localStorage.
+ * Supports optional { throwOnError: true } for staged restoration failure handling.
  */
-export const saveStoredEmployees = (employees) => {
+export const saveStoredEmployees = (employees, options = {}) => {
   const storage = getStorage()
-  if (!storage) return
+  if (!storage) {
+    if (options.throwOnError) {
+      throw new Error('Local storage is unavailable.')
+    }
+    return
+  }
   try {
     storage.setItem(EMPLOYEES_STORAGE_KEY, JSON.stringify(employees))
   } catch (error) {
     console.error('Error saving employees to localStorage:', error)
+    if (options.throwOnError) {
+      throw error
+    }
   }
 }
 

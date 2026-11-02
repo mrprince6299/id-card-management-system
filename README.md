@@ -4,7 +4,7 @@
 [![Vite](https://img.shields.io/badge/Vite-8-646cff.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38bdf8.svg?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License: Custom Attribution](https://img.shields.io/badge/License-Custom_Attribution_Required-orange.svg)](./LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-227%20Passing-emerald.svg)](./tests)
+[![Tests](https://img.shields.io/badge/Tests-303%20Passing-emerald.svg)](./tests)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/mrprince6299/id-card-management-system/pulls)
 
 A modern, production-ready, **local-first ID Card Management & Generation Platform** designed for institutions, enterprises, universities, event organizers, and facilities. 
@@ -85,11 +85,38 @@ Supports 7 standard identity models, each with tailored schema labels and valida
 
 ### 8. Full-Platform Backup, Restore & Recovery
 - Complete platform backup into a versioned, portable JSON archive (including all organizations, records, custom fields, template settings, and Base64-encoded IndexedDB photos).
-- **Cryptographic Tamper Detection**: Computes SHA-256 integrity checksums over organizations, rosters, and photos.
-- **Automatic Recovery Snapshot**: Automatically creates a rollback point before any restore or bulk wipe operation.
+- **Cryptographic Tamper Detection**: Computes deterministic FIPS 180-4 compliant SHA-256 integrity checksums over organizations, rosters, template customizations, and photos.
+- **Automatic Recovery Snapshot**: Automatically creates an atomic rollback point before any restore or bulk wipe operation.
 - **Two Restoration Modes**:
   - `Replace All`: Cleanly resets and replaces the workspace with the backup contents.
   - `Merge / Append`: Intelligently merges backup records, resolving conflicts and updating existing IDs.
+
+#### 🛡️ Backup & Restore Subsystem Architecture
+
+##### 1. Cryptographic Checksum Format & Determinism
+- **Modern Checksum Format**: Backups conforming to Schema 2.1.0+ calculate a cryptographic SHA-256 digest prefixed with `SHA256:` followed by exactly 64 lower-case hexadecimal characters (`SHA256:<64 hex>`).
+- **Canonical Serialization**: Checksum calculation recursively canonicalizes objects and arrays—sorting dictionary keys lexicographically, maintaining array order, normalizing Unicode sequences, and strictly including 100% of persisted application fields (`schemaVersion`, `activeOrgId`, `organizations`, `records`, `photos`, and `templateSettings`).
+- **Zero False Mismatch**: Serializing and hashing are invariant across platform environments, browser engines, key ordering, and whitespace variations.
+
+##### 2. Legacy Schema Backward Compatibility
+The restore parser provides full backward compatibility across all legacy backup formats without data loss:
+- **Schema 1.0.0**: Flat single-organization employee roster format (migrated into multi-org format with active tenant assignment). Checksums are validated when present.
+- **Schema 2.0.0**: Multi-organization format without mandatory integrity blocks.
+- **Schema 2.1.0 (Legacy FNV-1a)**: Validates historical 32-bit FNV-1a checksums (`CHK-<8 hex>`) using the identical legacy field-sampling algorithm.
+- **Schema 2.1.0+ (Modern SHA-256)**: Re-computes and strictly enforces SHA-256 cryptographic checksums before any data is written to disk.
+
+##### 3. Storage Engine Boundary & Staged Atomic Recovery
+- **Multi-Engine Boundary**: Modern web browsers lack cross-engine atomic transactions between `localStorage` (synchronous string store) and `IndexedDB` (asynchronous binary object store).
+- **Staged Restore Pipeline**:
+  1. *Snapshot Capture*: Captures complete in-memory and persistent snapshots of `records`, `organizations`, `activeOrgId`, `templateSettings`, and IndexedDB photos before initiating changes.
+  2. *Pre-Write Validation*: Rejects corrupted payloads, invalid schemas, and mismatched checksums before writing any bytes to persistent storage.
+  3. *Staged Application*: Writes records and organizations with `{ throwOnError: true }` so quota or I/O errors are immediately caught.
+  4. *Exact Persisted Verification*: Re-reads actual persistent storage to confirm record counts, object keys, deep canonical equality, organization lists, template JSON, and active tenant state.
+  5. *Automatic Snapshot Rollback*: If any failure occurs at any stage, `rollbackState()` restores the previous snapshot to both `localStorage` and `IndexedDB`. If rollback itself encounters an error, dual-error reporting preserves both the original restore failure and the rollback failure.
+
+##### 4. Integrity vs. Authenticity Security Notice
+- **Integrity Guarantee**: The SHA-256 checksum guarantees data integrity against accidental bit flips, incomplete downloads, network truncation, and schema tampering.
+- **Authenticity Boundary**: SHA-256 is an unkeyed cryptographic hash function, not an asymmetric digital signature. An attacker with arbitrary file modification capability can recompute a valid SHA-256 checksum for modified content. Organizations requiring cryptographic non-repudiation or provenance verification should sign exported backup JSON archives with an external PKI / GPG key.
 
 ---
 

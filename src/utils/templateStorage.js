@@ -53,14 +53,23 @@ export const getSavedTemplateSettings = () => {
 
 /**
  * Save template settings to localStorage.
+ * Supports optional { throwOnError: true } for staged restoration failure handling.
  */
-export const saveTemplateSettings = (settings) => {
+export const saveTemplateSettings = (settings, options = {}) => {
   const storage = getStorage()
-  if (!storage) return
+  if (!storage) {
+    if (options.throwOnError) {
+      throw new Error('Local storage is unavailable.')
+    }
+    return
+  }
   try {
     storage.setItem(TEMPLATE_STORAGE_KEY, JSON.stringify(settings))
   } catch (err) {
     console.error('Failed to save template settings to localStorage:', err)
+    if (options.throwOnError) {
+      throw err
+    }
   }
 }
 

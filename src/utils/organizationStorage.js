@@ -134,7 +134,7 @@ export const UNASSIGNED_LEGACY_ORG = {
 /**
  * Hydrates asset references with genuine in-memory base64 URLs without storing them in localStorage.
  */
-const hydrateOrgAssets = (org) => {
+export const hydrateOrgAssets = (org) => {
   if (!org) return org
   if (org.id === 'sidwal-railway' || org.logoUrl === 'asset:sidwal-logo') {
     return { ...org, logoUrl: SIDWAL_LOGO_SRC }
@@ -194,7 +194,7 @@ export const getStoredOrganizations = () => {
       return DEFAULT_ORGANIZATIONS.map(hydrateOrgAssets)
     }
     const parsed = JSON.parse(raw)
-    let list = Array.isArray(parsed) && parsed.length > 0 ? parsed : DEFAULT_ORGANIZATIONS
+    let list = Array.isArray(parsed) ? parsed : DEFAULT_ORGANIZATIONS
 
     // If unassigned legacy records exist, include the recovery organization in the active list
     try {
@@ -215,15 +215,24 @@ export const getStoredOrganizations = () => {
 
 /**
  * Persist organizations to localStorage (sanitizing heavy assets).
+ * Supports optional { throwOnError: true } for staged restoration failure handling.
  */
-export const saveStoredOrganizations = (orgs) => {
+export const saveStoredOrganizations = (orgs, options = {}) => {
   const storage = getStorage()
-  if (!storage) return
+  if (!storage) {
+    if (options.throwOnError) {
+      throw new Error('Local storage is unavailable.')
+    }
+    return
+  }
   try {
     const sanitized = orgs.map(sanitizeForStorage)
     storage.setItem(ORGANIZATIONS_STORAGE_KEY, JSON.stringify(sanitized))
   } catch (err) {
     console.error('Failed to save organizations to localStorage:', err)
+    if (options.throwOnError) {
+      throw err
+    }
   }
 }
 
@@ -234,7 +243,9 @@ export const getActiveOrganizationId = () => {
   const storage = getStorage()
   if (!storage) return DEFAULT_ORGANIZATIONS[0].id
   try {
-    return storage.getItem(ACTIVE_ORG_STORAGE_KEY) || DEFAULT_ORGANIZATIONS[0].id
+    const val = storage.getItem(ACTIVE_ORG_STORAGE_KEY)
+    if (val === 'null' || val === '' || val === '__NO_ACTIVE_ORG__') return null
+    return val || DEFAULT_ORGANIZATIONS[0].id
   } catch (_) {
     return DEFAULT_ORGANIZATIONS[0].id
   }
@@ -247,7 +258,13 @@ export const setActiveOrganizationId = (orgId) => {
   const storage = getStorage()
   if (!storage) return
   try {
-    storage.setItem(ACTIVE_ORG_STORAGE_KEY, orgId)
+    if (orgId === null) {
+      storage.setItem(ACTIVE_ORG_STORAGE_KEY, '__NO_ACTIVE_ORG__')
+    } else if (orgId === undefined || orgId === '') {
+      storage.removeItem(ACTIVE_ORG_STORAGE_KEY)
+    } else {
+      storage.setItem(ACTIVE_ORG_STORAGE_KEY, orgId)
+    }
   } catch (err) {
     console.error('Failed to save active organization ID:', err)
   }

@@ -479,6 +479,34 @@ export const reassignPhotosOrg = async (fromOrgId, toOrgId, recordIds = null) =>
 let _cachedPhotoSnapshot = null
 
 /**
+ * Validates the in-memory photo snapshot structure, element integrity, and count.
+ * Used by rollbackFromRecoverySnapshot to reject malformed or incomplete snapshots.
+ */
+export const validatePhotoSnapshotInMemory = (expectedCount) => {
+  if (_cachedPhotoSnapshot !== null) {
+    if (!Array.isArray(_cachedPhotoSnapshot)) {
+      throw new Error('Rollback failed: In-memory photo snapshot must be an array.')
+    }
+    if (typeof expectedCount === 'number' && _cachedPhotoSnapshot.length !== expectedCount) {
+      throw new Error(
+        `Rollback failed: Incomplete photo snapshot (expected ${expectedCount} photos, found ${_cachedPhotoSnapshot.length}).`
+      )
+    }
+    for (let i = 0; i < _cachedPhotoSnapshot.length; i++) {
+      const p = _cachedPhotoSnapshot[i]
+      if (!p || typeof p !== 'object' || (!p.photoKey && !p.recordId && !p.employeeId)) {
+        throw new Error(`Rollback failed: Malformed photo entry at index ${i} in photo snapshot.`)
+      }
+    }
+  } else if (typeof expectedCount === 'number' && expectedCount > 0) {
+    throw new Error(
+      `Rollback failed: Incomplete photo snapshot (expected ${expectedCount} photos, but in-memory snapshot was not captured).`
+    )
+  }
+  return true
+}
+
+/**
  * Capture a lightweight in-memory snapshot of all current IndexedDB photos.
  * Preserves the exact binary Blobs, keys, and metadata for rollback.
  */
@@ -517,8 +545,32 @@ export const snapshotPhotosInMemory = async () => {
  * Restore photos from the in-memory snapshot back to IndexedDB.
  */
 export const restorePhotosFromSnapshot = async () => {
-  if (!_cachedPhotoSnapshot || _cachedPhotoSnapshot.length === 0) return 0
-  if (typeof window === 'undefined' || !window.indexedDB) return 0
+  if (!Array.isArray(_cachedPhotoSnapshot)) return 0
+  if (typeof window === 'undefined' || !window.indexedDB) return _cachedPhotoSnapshot.length
+
+  // If there were 0 photos in the original snapshot, try to clear any staged photos if DB is available.
+  // If DB cannot open (e.g. quota/disk full that triggered the restore failure), do not treat as fatal
+  // since the snapshot had no photos to restore.
+  if (_cachedPhotoSnapshot.length === 0) {
+    try {
+      const db = await openPhotoDB()
+      return new Promise((resolve) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite')
+        const store = tx.objectStore(STORE_NAME)
+        store.clear()
+        tx.oncomplete = () => {
+          db.close()
+          resolve(0)
+        }
+        tx.onerror = () => {
+          db.close()
+          resolve(0)
+        }
+      })
+    } catch (_) {
+      return 0
+    }
+  }
 
   try {
     const db = await openPhotoDB()
@@ -526,7 +578,7 @@ export const restorePhotosFromSnapshot = async () => {
       const tx = db.transaction(STORE_NAME, 'readwrite')
       const store = tx.objectStore(STORE_NAME)
 
-      // Clear whatever was staged
+      // Clear whatever was staged so failed restore photos are purged
       store.clear()
 
       // Re-populate original snapshot entries
@@ -545,8 +597,7 @@ export const restorePhotosFromSnapshot = async () => {
       }
     })
   } catch (err) {
-    console.warn('Could not restore photos from snapshot:', err)
-    return 0
+    throw new Error(`Failed to restore photos from snapshot: ${err.message}`)
   }
 }
 

@@ -358,6 +358,7 @@ await testAsync('Composite tenant keying prevents collision when displayedId is 
       },
     ],
   }
+  incomingBackup.integrity = { checksum: computeBackupChecksum(incomingBackup) }
 
   const result = await executeStagedRestore({
     backupData: incomingBackup,
@@ -409,6 +410,7 @@ await testAsync('Handles records with missing optional displayed IDs without col
       },
     ],
   }
+  incoming.integrity = { checksum: computeBackupChecksum(incoming) }
 
   const result = await executeStagedRestore({
     backupData: incoming,
@@ -444,6 +446,7 @@ await testAsync('Executes Replace All and creates an automatic pre-restore recov
       { recordId: 'rep_rec_02', organizationId: 'replacement-org', fullName: 'Replaced Record Two' },
     ],
   }
+  incomingBackup.integrity = { checksum: computeBackupChecksum(incomingBackup) }
 
   const result = await executeStagedRestore({
     backupData: incomingBackup,
